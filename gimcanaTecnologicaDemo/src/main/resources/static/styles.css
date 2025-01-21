@@ -1,0 +1,17 @@
+footer {
+	min-height:50px;
+}
+
+.dd5{
+	background-color: #59167F;
+	color: white;
+}
+
+.dd5:hover {
+	background-color: #59167F;
+	color: white;
+}
+
+.errorHeader {
+	background-color: red;
+}

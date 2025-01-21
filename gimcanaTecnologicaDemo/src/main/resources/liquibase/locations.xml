@@ -1,0 +1,42 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    
+    <changeSet author="albertsalud" id="initial-locations">
+    	<insert tableName="LOCATION">
+    		<column name="id">1</column>
+    		<column name="name">Ajuntament</column>
+    		<column name="description">Ajuntament description</column>
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">2</column>
+    		<column name="name">Escola bressol</column>
+    		<column name="description">Escola bressol description</column>
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">3</column>
+    		<column name="name">Escola</column>
+    		<column name="description">Escola description</column>
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">4</column>
+    		<column name="name">Biblioteca</column>
+    		<column name="description">Biblioteca description</column>
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">5</column>
+    		<column name="name">Cementiri</column>
+    		<column name="description">Cementiri description</column>
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">6</column>
+    		<column name="name">Plaça de la vila</column>
+    		<column name="description">Plaça de la vila description</column>
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">7</column>
+    		<column name="name">Esglèsia</column>
+    		<column name="description">Esglèsia description</column>
+    	</insert>
+    </changeSet>
+    
+</databaseChangeLog>
