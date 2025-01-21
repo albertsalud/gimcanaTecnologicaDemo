@@ -44,4 +44,12 @@
 		</createTable>		
     </changeSet>
     
+    <changeSet author="albertsalud" id="disables-initial-locations">
+    	<addColumn tableName="LOCATION">
+    		<column name="ENABLED" valueBoolean="false" type="BOOLEAN">
+    			<constraints nullable="false"/>
+    		</column>
+    	</addColumn>
+    </changeSet>
+    
 </databaseChangeLog>

@@ -1,0 +1,104 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    
+    <changeSet author="albertsalud" id="initial-locations">
+    	<insert tableName="LOCATION">
+    		<column name="id">23</column>
+    		<column name="name">Ajuntament</column>
+    		<column name="description">Casa molt popular&lt;br/&gt;de la vila de Sant Climent&lt;br/&gt;que sempre que hi han eleccions&lt;br/&gt;va renovant la gent.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">22</column>
+    		<column name="name">Pista poliesportiva</column>
+    		<column name="description">Aquest serà&lt;br/&gt;la pista més esportiva que trobaràs.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">21</column>
+    		<column name="name">Parc del patufet</column>
+    		<column name="description">Lloc d'esbarjo dels infant&lt;br/&gt;on no hi neva ni plou.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">20</column>
+    		<column name="name">Biblioteca</column>
+    		<column name="description">Tinc fulles, i no sóc arbre.&lt;br/&gt;Tinc lletres, i no sóc brou.&lt;br/&gt;Quan sàpigues què sóc&lt;br/&gt;busca un lloc on n'hi hagin un tou.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">19</column>
+    		<column name="name">Casal de cultura</column>
+    		<column name="description">Edifici de Sant Climent&lt;br/&gt;que és bressol de cultura.&lt;br/&gt;Concerts, treatres i més&lt;br/&gt;en fan dins d'aquesta estructura.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">18</column>
+    		<column name="name">Cementiri</column>
+    		<column name="description">Lloc d'obligat peregrinatge&lt;br/&gt;a la fi del camí de tothom,&lt;br/&gt;però no corris en arribar&lt;br/&gt;perquè d'aquí no hi ha retorn.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">17</column>
+    		<column name="name">Esglèsia</column>
+    		<column name="description">Lloc de culte de Sant Climent&lt;br/&gt;on quasi mai n'hi ha un colom,&lt;br/&gt;a excepció dels diumenges,&lt;br/&gt;que s'omple de gom a gom.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">8</column>
+    		<column name="name">Escola</column>
+    		<column name="description">Cada dia al de matí&lt;br/&gt;els infants de Sant Climent&lt;br/&gt;Pujen per Cal Marí&lt;br/&gt;a estudiar en aquest indret.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">9</column>
+    		<column name="name">Font del rector</column>
+    		<column name="description">En surt aigua beneïda per,&lt;br/&gt;segons la llegenda,&lt;br/&gt;regar el primer cirerer&lt;br/&gt;que es va plantar al poble.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">10</column>
+    		<column name="name">Monument de la sardana</column>
+    		<column name="description">El següent punt&lt;br/&gt;és un monument,&lt;br/&gt;títol de ciutat pubilla&lt;br/&gt;otorgat a Sant Climent.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">11</column>
+    		<column name="name">Plaça de la vila</column>
+    		<column name="description">Surt amb la pluja&lt;br/&gt;per aixoplugar la gent.&lt;br/&gt;N'hi ha un de gegant&lt;br/&gt;a una plaça de Sant Climent.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">12</column>
+    		<column name="name">Can Molins</column>
+    		<column name="description">A l'inici de la pujada a Sant Ramon&lt;br/&gt;hi ha una emblemàtica masia.&lt;br/&gt;Fins aqui t'hauràs d'apropar&lt;br/&gt;per continuar la partida.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">13</column>
+    		<column name="name">Can Bonet</column>
+    		<column name="description">Creua un pont de la riera&lt;br/&gt;i arribaràs en un moment.&lt;br/&gt;Masia hotel-restaurant&lt;br/&gt;del poble de Sant Climent.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">14</column>
+    		<column name="name">Escola bressol</column>
+    		<column name="description">Amb molt bona panoràmica,&lt;br/&gt;els més menuts de Sant Climent&lt;br/&gt;comencen a descobrir el món&lt;br/&gt;mentre van creixent.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">15</column>
+    		<column name="name">Espai de joves</column>
+    		<column name="description">Estàs de sort.&lt;br/&gt;L'espai de joves t'ha tocat.&lt;br/&gt;Haver de trencar-te el cap&lt;br/&gt;t'has estalviat.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>
+    	<insert tableName="LOCATION">
+    		<column name="id">16</column>
+    		<column name="name">Museu d'eines del pagès</column>
+    		<column name="description">Fet amb l'esforç dels climentons,&lt;br/&gt;un homenatge a la història,&lt;br/&gt;al treball de la terra&lt;br/&gt;que perduri a la memòria.</column>
+    		<column name="enabled" valueBoolean="true" />
+    	</insert>    	
+    </changeSet>
+    
+    
+</databaseChangeLog>

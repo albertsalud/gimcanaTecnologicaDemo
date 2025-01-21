@@ -36,7 +36,7 @@ public class CheckPointController {
 	public String getStatus(Model model) {
 		Player player = (Player) model.getAttribute("player");
 		if(player == null || player.getId() == null) {
-			log.warn("Player info not setted, returning to home");
+			log.warn("Player info not setted, redirecting home");
 			return "redirect:/";
 		}
 		
@@ -53,8 +53,8 @@ public class CheckPointController {
 	@PostMapping
 	public String validate(Model model, @RequestParam(name="response") Long locationId) {
 		Player player = (Player) model.getAttribute("player");
-		if(player == null) {
-			log.warn("Player info not setted, returning to home");
+		if(player == null || player.getId() == null) {
+			log.warn("Player info not setted, redirecting home");
 			return "redirect:/";
 		}
 		

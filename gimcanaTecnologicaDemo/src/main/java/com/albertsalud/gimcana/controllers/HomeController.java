@@ -14,10 +14,12 @@ import com.albertsalud.gimcana.model.services.PlayerService;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping(value = {"/", ""})
 @SessionAttributes("player")
+@Slf4j
 public class HomeController {
 	
 	private final PlayerService playerService;
@@ -29,7 +31,10 @@ public class HomeController {
 	@GetMapping
 	public String home(Model model) {
 		Player sessionPlayer = (Player) model.getAttribute("player");
-		if(sessionPlayer != null && sessionPlayer.getId() != null) return "redirect:/checkpoint";
+		if(sessionPlayer != null && sessionPlayer.getId() != null) {
+			log.info("Player info setted, redirecting to checkpoint");
+			return "redirect:/checkpoint";
+		}
 		return "index";
 	}
 	
@@ -42,6 +47,10 @@ public class HomeController {
 	@GetMapping("/restart")
 	public String restart(Model model) {
 		Player sessionPlayer = (Player) model.getAttribute("player");
+		if(sessionPlayer == null || sessionPlayer.getId() == null) {
+			log.warn("Player info not setted, redirecting home");
+			return "redirect:/";
+		}
 		return this.start(model, sessionPlayer.getName());
 	}
 	

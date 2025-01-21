@@ -16,7 +16,7 @@ public class LocationService {
 	
 	public LocationService(LocationRepository locationRepository) {
 		this.locationRepository = locationRepository;
-		this.locations = this.locationRepository.findAll();
+		this.locations = this.locationRepository.findAll().stream().filter(Location::getEnabled).toList();
 	}
 	
 	
