@@ -23,14 +23,17 @@
 		<p>Aquí tens la teva rondalla:</p>
 			<p><i><span th:utext="${status.currentLocationDescription}">Current location description</span></i></p>
 			
-		<form method="post" action="checkpoint">
+		<form method="post" th:action="@{checkpoint}" th:object="${checkPointDTO}">
 			<div class="form-check mb-3" th:each="response: ${status.responses}">
-				<input class="form-check-input" type="radio" name="response" th:value="${response.id}" th:id="'reponse' + ${response.id}"/>
-				<label class="form-check-label" th:for="'reponse' + ${response.id}" th:text="${response.name}">
+				<input th:field="*{location}" class="form-check-input" type="radio" th:value="${response.id}" th:id="'location' + ${response.id}"/>
+				<label class="form-check-label" th:for="'location' + ${response.id}" th:text="${response.name}">
 					Location name
 				</label>
 			</div>
-			<input type="submit" class="btn dd5" value="Estic aquí!" />
+			<div th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="errorText">Has d'indicar la ubicació a on en trobes.</div>
+			<div>
+				<input type="submit" class="btn dd5" value="Estic aquí!" />
+			</div>
 		</form>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
