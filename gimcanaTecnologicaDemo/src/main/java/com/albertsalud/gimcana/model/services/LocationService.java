@@ -18,18 +18,17 @@ public class LocationService {
 		this.locationRepository = locationRepository;
 		this.locations = this.locationRepository.findAll().stream().filter(Location::getEnabled).toList();
 	}
-	
-	
-	public List<Location> getLocations() {
-		return locations;
-	}
-	
+		
 	public Location getRandomLocation(List<Location> invalidLocations) {
 		Location randomLocation;
 		Random r = new Random();
 		do {
 			int randomIndex = r.nextInt(this.locations.size());
 			randomLocation = this.locations.get(randomIndex);
+			
+			if(invalidLocations.size() >= locations.size()) {
+				break;
+			}
 			
 		} while (invalidLocations.contains(randomLocation));
 		
