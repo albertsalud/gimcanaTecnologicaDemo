@@ -1,10 +1,15 @@
 package com.albertsalud.gimcana.tools;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class SecretWordGenerator {
 	
 	private Random random = new Random();
@@ -47,6 +52,24 @@ public class SecretWordGenerator {
 			"SKULL",
 			"NITRO"
 	};
+	
+	public SecretWordGenerator() {
+		this.checkSecretWordsLength();
+	}
+	
+	private void checkSecretWordsLength() {
+		List<String> validatedWords = new ArrayList<>();
+		for(String currentWord:secretWords) {
+			if(currentWord == null || currentWord.trim().length() != 5) {
+				log.error("Invalid secret word found: {}", currentWord);
+				continue;
+			}
+			validatedWords.add(currentWord);
+		}
+		
+		this.secretWords = validatedWords.toArray(new String[validatedWords.size()]);
+		
+	}
 	
 	public String getSecretWord() {
 		System.out.println("Selecting a secret word between " + secretWords.length + " possibilities...");
