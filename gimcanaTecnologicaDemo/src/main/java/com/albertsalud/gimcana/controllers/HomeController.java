@@ -2,18 +2,18 @@ package com.albertsalud.gimcana.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.albertsalud.gimcana.controllers.dtos.PlayerDTO;
 import com.albertsalud.gimcana.model.entities.Player;
 import com.albertsalud.gimcana.model.services.PlayerService;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -35,12 +35,19 @@ public class HomeController {
 			log.info("Player info setted, redirecting to checkpoint");
 			return "redirect:/checkpoint";
 		}
+		
+		model.addAttribute("playerDTO", new PlayerDTO());
 		return "index";
 	}
 	
 	@PostMapping("/start")
-	public String start(Model model, @NotBlank @Size(min = 2, max = 20) @RequestParam("name") String name) {
-		model.addAttribute("player", playerService.createPlayer(name));
+	public String start(Model model,  @Valid PlayerDTO playerDTO, 
+			BindingResult binding) {
+		if(binding.hasErrors()) {
+			return "index";
+		}
+		
+		model.addAttribute("player", playerService.createPlayer(playerDTO.getName()));
 		return "redirect:/checkpoint";
 	}
 	
@@ -51,7 +58,7 @@ public class HomeController {
 			log.warn("Player info not setted, redirecting home");
 			return "redirect:/";
 		}
-		return this.start(model, sessionPlayer.getName());
+		return "redirect:/start";
 	}
 	
 	@ModelAttribute("player")

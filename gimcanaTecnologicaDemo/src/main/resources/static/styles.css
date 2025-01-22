@@ -15,3 +15,8 @@ footer {
 .errorHeader {
 	background-color: red;
 }
+
+.errorText {
+	color: red;
+	font-size: smaller;
+}
