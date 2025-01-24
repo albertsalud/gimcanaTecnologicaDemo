@@ -33,7 +33,7 @@
 			<tbody>
 				<tr th:each="checkPoint: ${player.checkPoints}">
 					<td scope="row" th:text="${checkPoint.location.name}">Location name</td>
-					<td th:text="${#dates.format(checkPoint.checkedDate, 'dd-MM-yyyy hh:mm:ss')}">Checked date</td>
+					<td th:text="${#dates.format(checkPoint.checkedDate, 'dd/MM/yyyy HH:mm:ss')}">Checked date</td>
 				</tr>
 			</tbody>
 		</table>

@@ -47,6 +47,7 @@ public class HomeController {
 			return "index";
 		}
 		
+		log.info("Starting new game for {}", playerDTO.getName());
 		model.addAttribute("player", playerService.createPlayer(playerDTO.getName()));
 		return "redirect:/checkpoint";
 	}
