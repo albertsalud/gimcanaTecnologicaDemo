@@ -92,7 +92,7 @@ public class HomeControllerTest {
 		Player sessionPlayer = null;
 		when(mockedModel.getAttribute(anyString())).thenReturn(sessionPlayer); 
 		
-		String response = controller.restart(mockedModel);
+		String response = controller.restart(mockedModel, mockedBindingResult);
 		assertEquals("redirect:/", response);
 		verify(mockedModel).getAttribute(eq("player"));
 		
@@ -100,7 +100,7 @@ public class HomeControllerTest {
 		sessionPlayer = new Player();
 		when(mockedModel.getAttribute(anyString())).thenReturn(sessionPlayer); 
 		
-		response = controller.restart(mockedModel);
+		response = controller.restart(mockedModel, mockedBindingResult);
 		assertEquals("redirect:/", response);
 		verify(mockedModel).getAttribute(eq("player"));
 		
@@ -108,8 +108,8 @@ public class HomeControllerTest {
 		sessionPlayer.setId(1L);
 		when(mockedModel.getAttribute(anyString())).thenReturn(sessionPlayer); 
 		
-		response = controller.restart(mockedModel);
-		assertEquals("redirect:/start", response);
+		response = controller.restart(mockedModel, mockedBindingResult);
+		assertEquals("redirect:/checkpoint", response);
 		verify(mockedModel).getAttribute(eq("player"));
 	}
 	
