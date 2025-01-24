@@ -43,7 +43,7 @@ public class HomeController {
 	@PostMapping("/start")
 	public String start(Model model,  @Valid PlayerDTO playerDTO, 
 			BindingResult binding) {
-		if(binding.hasErrors()) {
+		if(binding != null && binding.hasErrors()) {
 			return "index";
 		}
 		
@@ -53,7 +53,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/restart")
-	public String restart(Model model, BindingResult result) {
+	public String restart(Model model) {
 		Player sessionPlayer = (Player) model.getAttribute("player");
 		if(sessionPlayer == null || sessionPlayer.getId() == null) {
 			log.warn("Player info not setted, redirecting home");
@@ -62,7 +62,7 @@ public class HomeController {
 		
 		PlayerDTO playerDTO = new PlayerDTO();
 		playerDTO.setName(sessionPlayer.getName());
-		return this.start(model, new PlayerDTO(), result);
+		return this.start(model, playerDTO, null);
 	}
 	
 	@ModelAttribute("player")
