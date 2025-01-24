@@ -52,13 +52,16 @@ public class HomeController {
 	}
 	
 	@GetMapping("/restart")
-	public String restart(Model model) {
+	public String restart(Model model, BindingResult result) {
 		Player sessionPlayer = (Player) model.getAttribute("player");
 		if(sessionPlayer == null || sessionPlayer.getId() == null) {
 			log.warn("Player info not setted, redirecting home");
 			return "redirect:/";
 		}
-		return "redirect:/start";
+		
+		PlayerDTO playerDTO = new PlayerDTO();
+		playerDTO.setName(sessionPlayer.getName());
+		return this.start(model, new PlayerDTO(), result);
 	}
 	
 	@ModelAttribute("player")
