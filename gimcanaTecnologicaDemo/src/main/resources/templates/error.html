@@ -18,26 +18,10 @@
 		</div>
 	</nav>
 	<div class="container mb-5">
-		<h1>Enhorabona!</h1>
-		<p>Felicitats, <strong><span th:text="${player.name}">Albert</span></strong>, has completat la gimcana trobant la paraula
-			<strong><span th:text="${player.secretWord}">BANG</span></strong>.
-		</p>
-		<p>Esperem que hagis gaudit d'una bona estona. Aquí tens els teus checkpoints:</p>
-		<table class="table mb-3">
-			<thead>
-				<tr>
-					<th scope="col">Ubicació</th>
-					<th scope="col">Arribada</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="checkPoint: ${player.checkPoints}">
-					<td scope="row" th:text="${checkPoint.location.name}">Location name</td>
-					<td th:text="${#dates.format(checkPoint.checkedDate, 'dd/MM/yyyy HH:mm:ss')}">Checked date</td>
-				</tr>
-			</tbody>
-		</table>
-		<a href="restart" class="btn dd5">Vull tornar-ho a intentar</a>
+		<h1>Ops! Alguna cosa no ha anat com s'esperava</h1>
+		<p>No hem pogut processar la teva petició. Si us plau, disculpa les molèsties.</p>
+		<p>Et convidem a que ho tornis a intentar</p>
+		<a href="/checkpoint" class="btn dd5">Torna a l'inici</a>
 	</div>
 	<div class="container">
 		<footer class="dd5 d-flex justify-content-between">

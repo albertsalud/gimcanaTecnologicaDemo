@@ -109,7 +109,7 @@ public class HomeControllerTest {
 		when(mockedModel.getAttribute(anyString())).thenReturn(sessionPlayer); 
 		
 		response = controller.restart(mockedModel);
-		assertEquals("redirect:/start", response);
+		assertEquals("redirect:/checkpoint", response);
 		verify(mockedModel).getAttribute(eq("player"));
 	}
 	

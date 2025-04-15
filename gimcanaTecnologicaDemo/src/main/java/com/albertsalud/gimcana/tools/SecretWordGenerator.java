@@ -50,7 +50,8 @@ public class SecretWordGenerator {
 			"ALONE",
 			"TUDOR",
 			"SKULL",
-			"NITRO"
+			"NITRO",
+			"INVALIDWORD"
 	};
 	
 	public SecretWordGenerator() {
@@ -72,7 +73,7 @@ public class SecretWordGenerator {
 	}
 	
 	public String getSecretWord() {
-		System.out.println("Selecting a secret word between " + secretWords.length + " possibilities...");
+		log.info("Selecting a secret word between {} possibilities...", secretWords.length);
 		return secretWords[random.nextInt(secretWords.length)];
 	}
 	

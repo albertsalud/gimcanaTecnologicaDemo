@@ -45,6 +45,7 @@ public class CheckPointController {
 		log.info("Obtaining info for player {}...", player.getName());
 		model.addAttribute("checkPointDTO", new CheckPointDTO());
 		if(player.getCheckedCheckPoints() == CheckPoint.MAX_ALLOWED_CHECKPOINTS) {
+			log.info("Player {} finished!", player.getName());
 			return "congratulations";
 		} else {
 			model.addAttribute("status", createStatusDTO(player));
@@ -67,6 +68,7 @@ public class CheckPointController {
 			return "checkpoint";
 		}
 		
+		log.info("Validating checkpoint for {}...", player.getName());
 		model.addAttribute("correctPlace", checkPointService.validateCheckPoint(player, checkPointDTO.getLocation()));
 		return this.getStatus(model);
 		

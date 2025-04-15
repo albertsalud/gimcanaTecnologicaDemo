@@ -10,7 +10,10 @@ import com.albertsalud.gimcana.model.entities.Location;
 import com.albertsalud.gimcana.model.entities.Player;
 import com.albertsalud.gimcana.model.repositories.CheckPointRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CheckPointService {
 	
 	private final LocationService locationService;
@@ -36,11 +39,13 @@ public class CheckPointService {
 	public boolean validateCheckPoint(Player player, Long locationId) {
 		Location expectedLocation = player.getCurrentLocation();
 		if(expectedLocation.getId().equals(locationId)) {
+			log.info("Correct location!");
 			CheckPoint currentCheckPoint = getCurrentCheckPoint(player.getCheckPoints());
 			currentCheckPoint.setCheckedDate(new Date());
 			this.checkPointRepository.save(currentCheckPoint);
 			
 			if(player.getCheckPoints().size() < CheckPoint.MAX_ALLOWED_CHECKPOINTS) {
+				log.info("Creating new checkpoint for {}", player.getName());
 				CheckPoint nextCheckPoint = this.createCheckPoint(player);
 				player.getCheckPoints().add(this.checkPointRepository.save(nextCheckPoint));
 			}

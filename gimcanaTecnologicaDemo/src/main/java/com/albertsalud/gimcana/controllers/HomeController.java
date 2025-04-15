@@ -43,10 +43,11 @@ public class HomeController {
 	@PostMapping("/start")
 	public String start(Model model,  @Valid PlayerDTO playerDTO, 
 			BindingResult binding) {
-		if(binding.hasErrors()) {
+		if(binding != null && binding.hasErrors()) {
 			return "index";
 		}
 		
+		log.info("Starting new game for {}", playerDTO.getName());
 		model.addAttribute("player", playerService.createPlayer(playerDTO.getName()));
 		return "redirect:/checkpoint";
 	}
@@ -58,7 +59,10 @@ public class HomeController {
 			log.warn("Player info not setted, redirecting home");
 			return "redirect:/";
 		}
-		return "redirect:/start";
+		
+		PlayerDTO playerDTO = new PlayerDTO();
+		playerDTO.setName(sessionPlayer.getName());
+		return this.start(model, playerDTO, null);
 	}
 	
 	@ModelAttribute("player")

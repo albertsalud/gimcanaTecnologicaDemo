@@ -14,10 +14,12 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
 @Table(name = "PLAYER")
+@ToString(exclude = {"checkPoints"})
 public class Player {
 	
 	@Id
